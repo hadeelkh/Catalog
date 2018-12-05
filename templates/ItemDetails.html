@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="row mainrow text-ppading">
+		<h2 class="title-color">{{Item.title}} </h2>
+		<br>
+		<p class="ornglink" ><strong>{{Item.description}}</strong></p>									
+
+{%if 'username' in session and Item.user_id == session['user_id'] %}
+	<div class="row">
+		<a href="{{url_for('editItem',categoryName = 'categoryName' ,Item = Item.id )}}" class="ornglink">
+			Edit
+		</a>
+		<a  href="{{url_for('deleteItem',Item = Item.id) }}" class="ornglink">
+			 | Delete
+		</a>
+	</div>
+</div>
+{% endif %}
+{% endblock %}

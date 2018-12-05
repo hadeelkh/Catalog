@@ -1,0 +1,49 @@
+body{
+	
+	color: #818181;
+	font-weight: 300;
+	background-color: #f7f2dc42;
+}
+
+
+.text-muted{
+	color: #bcbbbb;
+}
+
+.text-thin{
+	font-weight: 50;
+}
+
+.text-ppading{
+	padding: 30px;
+}
+
+.title-color{
+	color: #000000;
+}
+
+.title-logo{
+	margin-top: 20px;
+}
+.ornglink{
+color: #BF360C;	
+}
+
+.mainrow{
+	background-color: #f1edd5;
+	margin-top: 10px;
+
+}
+
+.top-menu{
+	padding-top: 10px;
+}
+
+.top-color{
+background-color: #bf360cba;
+height: 20px;	
+}
+.title{
+   	margin-top: 20px;
+   	margin-bottom: 20px;
+}

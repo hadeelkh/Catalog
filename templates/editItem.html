@@ -1,0 +1,39 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="row mainrow text-ppading">
+	<form action="{{url_for('editItem',categoryName = categoryName ,Item = Item.id )}}" method="post">
+		<div class="form-group row text-ppading">
+		  <label for="example-text-input" class="col-2 col-form-label title-color">Title</label>
+		  <div class="col-10">
+		    <input class="form-control ornglink" type="text" value="{{Item.title}}" name="title">
+		  </div>
+		  <br>
+		  <label for="example-text-input" class="col-2 col-form-label title-color">Description</label>
+		  <div class="col-10">
+		    <input class="form-control ornglink" type="text" value="{{Item.description}}" name="description">
+		  </div>
+		  <br>
+		  <label for="example-text-input" class="col-2 col-form-label title-color"> category </label>
+		  <div class="col-10 ornglink">
+		    <select name="category">
+		      {% for c in categories %}
+		         {%if c.id == Item.category_id %}
+		            <option value="{{c.id}}" selected >{{c.name}}</option>
+		         {% else %}
+		            <option value="{{c.id}}">{{c.name}}</option>
+		         {% endif %}			
+			  {% endfor %}
+		    </select>
+		  </div>
+		  <br>
+		  <div class="col-10 ">
+		      <input type='submit' value = 'edit' class="btn btn-warning">
+		      <button type="button" class="btn btn-default" onclick="location.href='{{url_for("showCategories")}}'" > Cancle</button>
+ 
+		  </div>
+		</div>	
+	</form>	
+</div>
+{% endblock %}

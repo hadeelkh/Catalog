@@ -1,0 +1,34 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="row mainrow text-ppading">
+	<form action="{{url_for('newItem')}}" method="post">
+		<div class="form-group row text-ppading">
+		  <label for="example-text-input" class="col-2 col-form-label title-color">Title</label>
+		  <div class="col-10">
+		    <input class="form-control ornglink" type="text"  name="title">
+		  </div>
+		  <br>
+		  <label for="example-text-input" class="col-2 col-form-label title-color">Description</label>
+		  <div class="col-10">
+		    <input class="form-control ornglink" type="text"  name="description">
+		  </div>
+		  <br>
+		  <label for="example-text-input" class="col-2 col-form-label title-color"> category </label>
+		  <div class="col-10 ornglink">
+		    <select name="category">
+		      {% for c in categories %}
+		          <option value="{{c.id}}">{{c.name}}</option>		
+			  {% endfor %}
+		    </select>
+		  </div>
+		  <br>
+		  <div class="col-10">
+		      <input type='submit' value = 'Add' class="btn btn-default">
+		      <button type="button" class="btn btn-default" onclick="location.href='{{url_for("showCategories")}}'" > Cancle</button> 
+		  </div>
+		</div>	
+	</form>
+</div>
+{% endblock %}

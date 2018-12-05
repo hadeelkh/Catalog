@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="row mainrow text-ppading">
+    <div class="row">
+        <h3 class="title-color "> confirmation message </h3>
+
+        <h4 class="ornglink text-ppading">Are you sure you want to delete {{Item.title}} item </h4>
+    </div>
+    <div class="row">
+    	<div class="col-md-12">
+	    	<form action="{{url_for('deleteItem',Item = Item.id) }}" method = 'post'>
+	    	   <input type='submit' value = 'Delete' class="btn btn-danger">
+	    	   <button type="button" class="btn btn-default" onclick="location.href='{{url_for("showCategories")}}'" > Cancle</button>
+	        </form>
+	        
+    	</div>
+    </div>
+</div>
+{% endblock %}

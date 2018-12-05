@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="row mainrow text-ppading">
+	<div class="col-md-6">
+		<table>
+			<h3 class="title-color">ALL Categories </h3>
+			{% for c in categories %}					
+			<tr style="margin: 30px">
+				<td>
+					<a href="{{url_for('showCatItems', categoryName = c.name )}}"><h4 class="ornglink"> {{c.name}} </h4></a>
+				</td>
+			</tr>
+			{% endfor %}
+		</table>	
+	</div>	
+	<div class="col-md-6">
+		<table>
+			<h3 class="title-color">{{category.name}} items ( {{itemsCount}} items) </h3>
+			{% for i in AllItems %}					
+			<tr style="margin: 30px">
+				<td>
+					<a href="{{url_for('showItemDetails',categoryName=category.name ,Item = i.id )}}" >
+						<h4 class="ornglink"> {{i.title}} ({{category.name}}) </h4>
+					</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
+{% endblock %}

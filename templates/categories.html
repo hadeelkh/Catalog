@@ -1,0 +1,48 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class = 'flash'>
+	{% with messages = get_flashed_messages() %}
+     {% if messages %}  
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+     {% endif %}
+    {% endwith %}
+</div>
+
+<div class="row mainrow text-ppading" >
+	<div class="col-md-6">
+		<table>
+			<h3 class="title-color">ALL Categories </h3>
+			{% for c in categories %}					
+				<tr style="margin: 30px">
+					<td>
+						<a href="{{url_for('showCatItems', categoryName = c.name )}}"><h4 class="ornglink"> {{c.name}} </h4></a>
+					</td>
+				</tr>
+			{% endfor %}
+		</table>		
+	</div>	
+	<div class="col-md-6 ">
+		<table>
+			{%if 'username' in session %}
+			<a href="{{url_for('newItem')}}" class="ornglink">Add new item</a>
+			{% endif %}
+			<h3 class="title-color">Last items of Categories </h3>
+			{% for i in lastItems %}					
+			<tr style="margin: 30px">
+				<td>
+					<a href="{{url_for('showItemDetails',categoryName=i.name ,Item = i.id )}}" >
+						<h4 class="ornglink"> {{i.title}} ({{i.name}}) </h4>
+					</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</table>	
+	</div>
+</div>
+{% endblock %}
