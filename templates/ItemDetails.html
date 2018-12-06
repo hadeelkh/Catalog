@@ -8,10 +8,10 @@
 
 {%if 'username' in session and Item.user_id == session['user_id'] %}
 	<div class="row">
-		<a href="{{url_for('editItem',categoryName = 'categoryName' ,Item = Item.id )}}" class="ornglink">
+		<a href="{{url_for('editItem',categoryName = 'categoryName' ,Item = Item.id )}}" class="title-color">
 			Edit
 		</a>
-		<a  href="{{url_for('deleteItem',Item = Item.id) }}" class="ornglink">
+		<a  href="{{url_for('deleteItem',Item = Item.id) }}" class="title-color">
 			 | Delete
 		</a>
 	</div>
